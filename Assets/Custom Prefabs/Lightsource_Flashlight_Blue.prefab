@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7797791693684687216}
   - component: {fileID: 2323893273143280159}
+  - component: {fileID: 7474404764103265616}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -123,6 +124,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7474404764103265616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4154422575997061994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376688c5b82056e4da4c2b159887a7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOn: 1
 --- !u!1 &4794094415978982809
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +150,6 @@ GameObject:
   - component: {fileID: 575493573319866702}
   - component: {fileID: 1297966500642705125}
   - component: {fileID: 2785195650535769277}
-  - component: {fileID: 2785195650535769279}
   - component: {fileID: 2785195650535769278}
   m_Layer: 0
   m_Name: Lightsource_Flashlight_Blue
@@ -239,20 +252,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &2785195650535769279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4794094415978982809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b77b4623cb6814f7ea83f9855d72eb2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashlight: {fileID: 4154422575997061994}
-  toggleReference: {fileID: -5595951017690839730, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &2785195650535769278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +299,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7474404764103265616}
+        m_TargetAssemblyTypeName: ToggleLight, Assembly-CSharp
+        m_MethodName: Flip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
