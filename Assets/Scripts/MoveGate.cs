@@ -30,19 +30,19 @@ public class MoveGate : MonoBehaviour
         return leftGate.rotation != leftRotation || rightGate.rotation != rightRotation;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name == "XR Rig")
+        Debug.Log(collider.tag);
+        if (collider.tag == "Player")
         {
             opening = true;
             StartCoroutine(OpenGate());
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collider)
     {
-        if (collision.gameObject.name == "XR Rig")
+        if (collider.tag == "Player")
         {
             opening = false;
             StartCoroutine(CloseGate());
