@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class FadeLight : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI percent;
+    public float fadeSpeed = 3;
+    public float currentBattery = 100;
     private Light currentLight = null;
-    private int percentValue;
+    public float defaultIntensity = 10;
+    public float defaultRange = 15;
 
     private void Awake()
     {
@@ -17,11 +20,23 @@ public class FadeLight : MonoBehaviour
 
 
     // Update is called once per frame
+    // TODO: Make the light turn completely off when the battery is dead
     void Update()
     {
-        if (currentLight.isActiveAndEnabled)
+        if (currentLight.isActiveAndEnabled && currentBattery > 0)
         {
-            percentValue = int.Parse(percent.text.Substring(0, percent.text.Length - 2));
+            percent.text = Mathf.Round(currentBattery).ToString() + "%";
+            // Update the remaining percent value based on time
+            currentBattery -= fadeSpeed * Time.deltaTime;
+            // We want to update intensity and range based on the currentBattery life
+            currentLight.intensity = Mathf.Min(5, defaultIntensity * currentBattery / 100);
+            //currentLight.range = defaultRange * currentBattery / 100;
         }
+        if (currentBattery <= 10f)
+        {
+            percent.color = Color.red;
+            currentLight.color = Color.red;
+        }
+        else percent.color = Color.white;
     }
 }

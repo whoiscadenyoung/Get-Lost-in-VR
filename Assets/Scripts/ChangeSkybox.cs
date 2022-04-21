@@ -17,13 +17,13 @@ public class ChangeSkybox : MonoBehaviour
         if (dayBox) RenderSettings.skybox = dayBox;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.name == "XR Rig") ChangeToNight();
+        if (collider.tag == "Player") ChangeToNight();
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collider)
     {
-        if (collision.gameObject.name == "XR Rig") ChangeToDay();
+        if (collider.tag == "Player") ChangeToDay();
     }
 }
