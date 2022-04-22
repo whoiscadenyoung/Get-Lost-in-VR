@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Caden Room.unity
     guid: afdcb113ffd5a4353ad88f0dd03743af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BenjiExperimental.unity
     guid: bedb51eb894f98548b5c621ef9276f59
   m_configObjects:
