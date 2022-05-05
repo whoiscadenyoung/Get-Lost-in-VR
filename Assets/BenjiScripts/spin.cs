@@ -11,7 +11,7 @@ public class spin : MonoBehaviour
     }
 
     // Update is called once per frame
-    bool goingup = true;
+    //bool goingup = true;
     void Update()
     {
         // Gets the local scale of a game object
