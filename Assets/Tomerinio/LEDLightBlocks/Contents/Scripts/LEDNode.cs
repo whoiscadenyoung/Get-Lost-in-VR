@@ -38,6 +38,7 @@ public class LEDNode : MonoBehaviour
     {
         // Init the attached components.
         pointLight = this.GetComponent<Light>();
+        pointLight.intensity = 0L;
         rend = GetComponent<Renderer>(); 
     }
 
