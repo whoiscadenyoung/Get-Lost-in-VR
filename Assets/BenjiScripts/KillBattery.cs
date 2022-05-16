@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillBattery : MonoBehaviour
 {
-    public GameObject light;
+    public FadeLight logic;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +17,13 @@ public class KillBattery : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "lightsource_Flashlight")
+        if (other.gameObject.tag == "Flashlight")
         {
             Destroy(this.gameObject);
-            light = other.gameObject;
-            FadeLight logic = light.GetComponent("Fade Light") as FadeLight;
+            Debug.Log("Other fadelight = " + logic.currentBattery);
+            //logic = other.gameObject.GetComponent<FadeLight>() as FadeLight;
             logic.currentBattery = 100;
         }
         

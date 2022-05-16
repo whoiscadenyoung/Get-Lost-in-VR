@@ -39,4 +39,8 @@ public class FadeLight : MonoBehaviour
         }
         else percent.color = Color.white;
     }
+    public void ResetBattery()
+    {
+        currentBattery = 100;
+    }
 }
